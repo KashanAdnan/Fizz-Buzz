@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fizz Buzz</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-box">
+        <input type="text" class="input" placeholder="Enter The Value" />
+        <button id="btn">Click</button>
+      </div>
+      <div class="result">
+        <h1 class="result_head">Check Your Console</h1>
+      </div>
+    </div>
+
+    <script type="module">
+      const input = document.querySelector(".input");
+      const btn = document.getElementById("btn");
+      const result_box = document.querySelector(".result");
+      const result_head = document.querySelector(".result_head");
+
+      btn.addEventListener("click", () => {
+        if (input.value === "") {
+            result_box.style.transform = `scale(100%)`;
+            setInterval(() => {
+                result_box.style.transform = `scale(0%)`;
+            }, 4000);
+            result_head.innerHTML = "Please Give Input For Output";
+        } else {
+          result_box.style.transform = `scale(100%)`;
+          result_head.innerHTML = "Check Your Console";
+          for (let i = 1; i <= input.value; i++) {
+            if (i % 2 === 0 && i % 5 === 0) {
+              console.log("Fizz Buss");
+            } else if (i % 5 === 0) {
+              console.log("Bus");
+            } else if (i % 2 === 0) {
+              console.log("Fizz");
+            } else {
+              console.log(i);
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
